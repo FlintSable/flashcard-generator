@@ -1,31 +1,32 @@
 var inquirer = require("inquirer");
 var card = require('./assets/cards');
 
-
+// ask the user how many cards they would like to create
+// process.argv[2]
 count = 0;
 
-function CardApp() {
+function cardPrompter() {
     if (count < 2) {
         inquirer.prompt([{
-            name: "name",
-            message: "What is your name?"
+            name: "question",
+            message: "insert the text for the flash card"
         }, {
-            name: "position",
-            message: "What is your current position?"
+            name: "answer",
+            message: "what would you like the back of the flash card to say?"
         }, {
-            name: "age",
-            message: "How old are you?"
+            name: "placeholder",
+            message: "placeholder:"
         }, {
-            name: "language",
-            message: "What is your favorite programming language?"
+            name: "placeholder2",
+            message: "placeholder2?"
         }]).then(function(answers) {
             // initializes the variable newguy to be a programmer object which will take
             // in all of the user's answers to the questions above
-            var newGuy = new FlashCard(answers.name, answers.position, answers.age, answers.language);
+            var newFlash = new FlashCard(answers.question, answers.answer, answers.placeholder, answers.placeholder2);
             // printInfo method is run to show that the newguy object was successfully created and filled
-            newGuy.printInfo();
+            newFlash.printInfo();
             count++;
-            prompter();
+            cardPrompter();
         });
     }
 }
