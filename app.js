@@ -1,6 +1,13 @@
 var inquirer = require("inquirer");
 var card = require('./assets/cards');
 
+// ceate cards element
+// recite cards 
+// first you would be prompted a question
+// then you would fill the answer 
+// then the full phrase should be recited
+
+
 // ask the user how many cards they would like to create
 // process.argv[2]
 count = 0;
@@ -31,4 +38,4 @@ function cardPrompter() {
     }
 }
 
-CardApp();
+cardPrompter();
