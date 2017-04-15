@@ -7,6 +7,8 @@ var card = require('./assets/cards');
 // then you would fill the answer 
 // then the full phrase should be recited
 
+// cloze will be another constructor
+
 
 // ask the user how many cards they would like to create
 // process.argv[2]
