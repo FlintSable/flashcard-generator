@@ -1,6 +1,4 @@
 var inquirer = require("inquirer");
-// var card = require('./assets/cards');
-var jsonfile = require('jsonfile');
 var card = require('./assets/CardCreate');
 var deck = require('./assets/DeckCreate');
 
@@ -48,7 +46,7 @@ var deckCardCount = function() {
         name: 'deskExists',
         type: 'choices',
         message: 'select a deck to continue',
-        choices: ,
+        choices: [],
         when: function(answers){
             // choces array needs to be populated with the files names from ./assets/decks/
             return answers.newDeck === false;
