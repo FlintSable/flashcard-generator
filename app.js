@@ -48,7 +48,9 @@ var deckCardCount = function() {
         name: 'deskExists',
         type: 'choices',
         message: 'select a deck to continue',
+        choices: ,
         when: function(answers){
+            // choces array needs to be populated with the files names from ./assets/decks/
             return answers.newDeck === false;
         }     
     }]).then(function(answers) {
@@ -57,6 +59,7 @@ var deckCardCount = function() {
            card.createFlash(Number(answers.flashCount), answers.deckName);
         }else if(answers.newDeck === false){
             // proceede to going to the selection of deck 
+
         }
     });
 

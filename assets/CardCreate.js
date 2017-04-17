@@ -1,26 +1,24 @@
 var inquirer = require("inquirer");
-var jsonfile = require('jsonfile');
 var fs = require('fs');
 
 
 var Card = function(guid, question, answer) {
     this.guid = guid;
-    this.cardInput = question;
+    this.text = question;
     this.answer = answer;
 };
 
 exports.createFlash = function(arg1, arg2) {
     flashy(arg1, arg2);
-            
+
 };
 count = 0;
 
 // get this to log out to json file
 var obj = [];
-function flashy(x, arg2) {
-	var file = './assets/decks/'+ arg2 + '.json';
-	
 
+function flashy(x, arg2) {
+    var file = './assets/decks/' + arg2 + '.deck';
     if (count < x) {
         inquirer.prompt([{
             name: 'question',
@@ -39,15 +37,15 @@ function flashy(x, arg2) {
             var flash = new Card(guid + count, answers.question, answers.answer);
             count++;
             flash = JSON.stringify(flash);
-            obj.push(flash+ '\n');
+            obj.push(flash + '\n');
             flashy(x, guid);
         });
-    }
-    else{
-
-    	fs.appendFile(file, obj), function(err) {
-  			console.error(err);
-			};
+    } else if(count === x){
+    	console.log('study this deck?');
+        fs.appendFile(file, obj),
+            function(err) {
+                console.error(err);
+            };
     }
 
 }
