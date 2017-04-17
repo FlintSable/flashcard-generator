@@ -55,9 +55,8 @@ var deckCardCount = function() {
         if(answers.newDeck === true){
             // proceede to createFlash()
             console.log('in the true');
-            card.Toast("hello");
             console.log(typeof Number(answers.flashCount));
-            card.createFlash(Number(answers.flashCount));
+            card.createFlash(Number(answers.flashCount), answers.deckName);
         }else if(answers.newDeck === !true){
             // proceede to going to the selection of deck 
         }

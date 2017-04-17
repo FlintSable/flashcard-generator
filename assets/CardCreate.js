@@ -1,14 +1,50 @@
 var inquirer = require("inquirer");
 
-var Card = function(question, answer) {
+var Card = function(guid, question, answer) {
+    this.guid = guid;
     this.cardInput = question;
     this.answer = answer;
 };
 
-exports.createFlash = function(arg1) {
-	count = 0;
-	totalCards = arg1;
-    if (count < totalCards) {
+exports.createFlash = function(arg1, arg2) {
+    count = 0;
+    deckName = arg2;
+    flashy(arg1, arg2);
+
+    // function flashy(x) {
+
+    //     if (count < x) {
+    //         inquirer.prompt([{
+    //             name: 'question',
+    //             message: "insert the text for the flash card"
+    //         }, {
+    //             name: 'answer',
+    //             message: "what would you like the back of the flash card to say?"
+    //         }, {
+    //             name: 'placeholder',
+    //             message: "placeholder:"
+    //         }, {
+    //             name: "placeholder2",
+    //             message: "placeholder2?"
+    //         }]).then(function(answers) {
+    //             guid = arg2;
+    //             var flash = new Card(guid, answers.question, answers.answer);
+    //             count++;
+    //             console.log(flash);
+    //         });
+
+
+
+
+
+    //     }
+
+    //}
+};
+count = 0;
+
+function flashy(x, arg2) {
+    if (count < x) {
         inquirer.prompt([{
             name: 'question',
             message: "insert the text for the flash card"
@@ -22,37 +58,18 @@ exports.createFlash = function(arg1) {
             name: "placeholder2",
             message: "placeholder2?"
         }]).then(function(answers) {
-            // initializes the variable newguy to be a programmer object which will take
-            // in all of the user's answers to the questions above
-            // console.log(card.toString());
-
-            var flash = new Card(answers.question, answers.answer);
-
-            console.log(flash);
-            // var newFlash = new Card(answers.question, answers.answer, answers.placeholder, answers.placeholder2);
-            // printInfo method is run to show that the newguy object was successfully created and filled
-            //newFlash.printInfo();
+            guid = arg2;
+            var flash = new Card(guid, answers.question, answers.answer);
             count++;
-            createFlash();
+            console.log(count);
+            flashy(x, guid);
         });
+
+
+
     }
-};
 
-
-
-
-
-exports.Toast = function(arg){
-	console.log(arg);
-};
-
-
-
-
-// create the cards put them into the deck
-
-
-
+}
 
 // create the deck
 exports.Deck = function(deckName) {
@@ -61,26 +78,3 @@ exports.Deck = function(deckName) {
         var outFile = './assets/decks/' + deckName + '.json';
     };
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// module.exports = {Card, Deck} ;s
