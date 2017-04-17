@@ -1,36 +1,15 @@
 var inquirer = require("inquirer");
 
+var Card = function(question, answer) {
+    this.cardInput = question;
+    this.answer = answer;
+};
 
 exports.createFlash = function(arg1) {
 	count = 0;
 	totalCards = arg1;
     if (count < totalCards) {
         inquirer.prompt([{
-            name: 'nodeckyes',
-            message: 'Would you like to create a new deck:',
-            type: 'list',
-            choices: ['yes', 'no'],
-            when: function(answers) {
-                if (answers.nodeckyes === 'yes') {
-                    console.log('will be created');
-                    // set deck variable
-                } else {
-                    console.log('current deck will be used');
-                    // use the deck variable
-                    // use the current deck
-                }
-            }
-        }, {
-            name: 'deckname',
-            message: 'what is the subject of this deck',
-            type: 'input',
-            when: function(answers) {
-                if (answers.nodeckyes) {
-                    deck = answers.deckname;
-                    // create the new deck
-                }
-            }
-        }, {
             name: 'question',
             message: "insert the text for the flash card"
         }, {
@@ -47,19 +26,21 @@ exports.createFlash = function(arg1) {
             // in all of the user's answers to the questions above
             // console.log(card.toString());
 
-            var flash = new card(answers.question, answers.answer);
-            // if(count = 0){
-            //     var deckName = new 
-            // }
+            var flash = new Card(answers.question, answers.answer);
+
             console.log(flash);
             // var newFlash = new Card(answers.question, answers.answer, answers.placeholder, answers.placeholder2);
             // printInfo method is run to show that the newguy object was successfully created and filled
             //newFlash.printInfo();
             count++;
-            cardPrompter();
+            createFlash();
         });
     }
 };
+
+
+
+
 
 exports.Toast = function(arg){
 	console.log(arg);
@@ -69,10 +50,7 @@ exports.Toast = function(arg){
 
 
 // create the cards put them into the deck
-exports.Card = function(question, answer) {
-    this.cardInput = question;
-    this.answer = answer;
-};
+
 
 
 

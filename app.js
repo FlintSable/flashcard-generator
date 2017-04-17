@@ -61,7 +61,6 @@ var deckCardCount = function() {
         }else if(answers.newDeck === !true){
             // proceede to going to the selection of deck 
         }
-        console.log(answers);
     });
 
 
