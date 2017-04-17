@@ -1,7 +1,7 @@
 # Flash Card Generator
 node.js command line flash cards using inquirer
 
-### current functionality only consists of create decks and saving them to decks
+### current functionality only consists of create decks and saving them to .deck files
 
 enter the applicaiton
 
