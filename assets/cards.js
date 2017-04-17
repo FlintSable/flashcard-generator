@@ -1,3 +1,11 @@
+var FlashPlay = function(){
+	this.cardInput = 
+
+	};
+};
+
+
+
 var flash = function FlashCard(question, answer, placeholder, placeholder2) {
     this.question = question;
     this.answer = answer;

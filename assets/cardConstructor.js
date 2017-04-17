@@ -1,3 +1,6 @@
+// not in use
+
+
 function FlashCard(name, position, age, language) {
   this.name = name;
   this.position = position;
