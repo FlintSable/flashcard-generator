@@ -3,10 +3,10 @@ node.js command line flash cards using inquirer
 
 ### current functionality only consists of create decks and saving them to .deck files
 
-enter the applicaiton
+enter the applicaition with this line
 
 ```
-node app.js
+npm start
 ```
 
 ### Overview of assignment
