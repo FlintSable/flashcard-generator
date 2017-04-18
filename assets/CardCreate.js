@@ -41,7 +41,9 @@ function flashy(x, arg2) {
             obj.push(flash + '\n');
             flashy(x, guid);
         });
-    } else if (count === x) {
+
+        } 
+        else if (count === x) {
         inquirer.prompt([{
             name: 'study',
             message: 'would you like to study this deck',
@@ -53,10 +55,10 @@ function flashy(x, arg2) {
 
 
             });
-        fs.appendFile(file, obj),
-            function(err) {
+        fs.appendFile(file, obj,function(err){
+            if (err) throw err;
                 console.error(err);
-            };
+            });
     }
 
 }
