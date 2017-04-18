@@ -12,6 +12,7 @@ exports.createFlash = function(arg1, arg2) {
     flashy(arg1, arg2);
 
 };
+
 count = 0;
 
 // get this to log out to json file
@@ -40,8 +41,18 @@ function flashy(x, arg2) {
             obj.push(flash + '\n');
             flashy(x, guid);
         });
-    } else if(count === x){
-    	console.log('study this deck?');
+    } else if (count === x) {
+        inquirer.prompt([{
+            name: 'study',
+            message: 'would you like to study this deck',
+            type: 'confirm'
+
+            }]).then(function(answers) {
+                console.log('\ntime to study');
+                console.log('read the deck');
+
+
+            });
         fs.appendFile(file, obj),
             function(err) {
                 console.error(err);
@@ -49,8 +60,6 @@ function flashy(x, arg2) {
     }
 
 }
-
-
 
 
 // create the deck
