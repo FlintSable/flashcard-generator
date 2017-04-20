@@ -1,26 +1,7 @@
 var inquirer = require("inquirer");
 var card = require('./assets/CardCreate');
-var deck = require('./assets/DeckCreate');
+// var deck = require('./assets/DeckCreate');
 
-// file extensions are not neccessary
-
-
-
-// ceate cards element
-// recite cards 
-// first you would be prompted a question
-// then you would fill the answer 
-// then the full phrase should be recited
-
-// cloze will be another constructor
-
-
-// ask the user how many cards they would like to create
-// process.argv[2]
-
-
-
-// could you like to create a new deck or continue a deck 
 
 
 var deckCardCount = function() {
@@ -68,6 +49,3 @@ deckCardCount();
 
 
 
-
-
-// time to study: please select a deck

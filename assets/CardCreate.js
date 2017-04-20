@@ -24,10 +24,10 @@ function flashy(x, arg2) {
     if (count < x) {
         inquirer.prompt([{
             name: 'question',
-            message: "insert the text for the flash card"
+            message: "Card front "
         }, {
             name: 'answer',
-            message: "what would you like the back of the flash card to say?"
+            message: "Card back "
         }]).then(function(answers) {
             guid = arg2;
             var flash = new Card(guid + count, answers.question, answers.answer);
@@ -38,7 +38,8 @@ function flashy(x, arg2) {
         });
 
     } else if (count === x) {
-        fs.appendFile(file, '['+ obj + ']', function(err) {
+        fs.appendFile(file, '[' + obj + ']', function(err) {
+
             if (err) throw err;
             console.error(err);
         });
@@ -47,8 +48,7 @@ function flashy(x, arg2) {
             message: 'would you like to study this deck',
             type: 'confirm'
         }]).then(function(answers) {
-            console.log('\ntime to study');
-            console.log('read the deck function');
+        	console.log(obj);
             cardReader(file);
         });
 
@@ -62,14 +62,40 @@ function cardReader(deckName) {
         if (err) {
             console.log(err);
         } else if (data !== null) {
-        	redData = JSON.parse(data);
-        	console.log(redData[1].text);
+            redData = JSON.parse(data);
+            console.log(data.length);
+
+            ncount = 0;
+
+            var testTime = function() {
+                if (count < 2) {
+                    inquirer.prompt([{
+                        name: 'q1',
+                        message: redData[ncount].text[0]
+                    }]).then(function(answers) {
+                    	console.log(answers);
+                    	console.log(redData);
+
+                        if (answers.q1 === redData[count].text) {
+                            count++;
+                            testTime();
+                        } else {
+                            testTime();
+                        }
+
+                    });
+                }
+            };
         }
+
+        testTime();
+
+        console.log(redData[1].text);
+
 
     });
 
 }
-
 
 
 // create the deck
